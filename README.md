@@ -1,6 +1,7 @@
 # Communication System Simulation (MATLAB)
 
-This repository contains the full implementation of a digital communication system simulation developed as the final project for the *Signals and Systems* course at Politecnico di Torino.
+This repository contains the full implementation of a digital communication system simulation developed as the final project for the *Signals and Systems* course at Politecnico di Torino.  
+The professors supervising the course are **Pierluigi Poggiolini** and **Andrea Carena**.
 
 The project includes:
 - Noise removal from corrupted audio signals  
@@ -16,7 +17,7 @@ Two audio signals are processed throughout the project:
 
 ---
 
-## 📘 Project Overview
+##  Project Overview
 
 ### **Part 1 – Signal Recovery**
 Removal of a strong narrowband interference at **5567.5 Hz**.
@@ -48,12 +49,8 @@ Simulation of transmitting both songs over a channel whose baseband is already o
   - Custom IIR low-pass filter  
 
 #### **Key Findings**
-- Higher carrier frequencies → cleaner demodulation  
-- Bessel LPF generally outperforms custom IIR LPF  
-- Single-song transmission yields best SIR values  
+- Custom notch filter performed better for filtering the noise at part 1  
+- Bessel LPF generally outperforms custom IIR LPF at the recovery stage in part 2  
+- Single-song transmission yields best SIR values
   (up to **24.61 dB** with Bessel LPF)  
-
----
-
-## 📁 Repository Structure
 
