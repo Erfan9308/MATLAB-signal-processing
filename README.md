@@ -1,80 +1,59 @@
-# MATLAB-signal-processing
-Simulation of a communication system in MATLAB: noise removal with Bessel &amp; notch filters, AM modulation, SIR optimization, and signal recovery analysis.
+# Communication System Simulation (MATLAB)
 
-
-Communication System Simulation (MATLAB)
-
-This repository contains the full implementation of a digital communication system simulation developed as the final project for the Signals and Systems course at Politecnico di Torino.
+This repository contains the full implementation of a digital communication system simulation developed as the final project for the *Signals and Systems* course at Politecnico di Torino.
 
 The project includes:
+- Noise removal from corrupted audio signals  
+- Bessel and notch filter design  
+- AM modulation and spectral multiplexing  
+- Coherent demodulation and reconstruction  
+- SIR-based optimization of filter and carrier choices  
+- MATLAB scripts, datasets, plots, and the full academic report  
 
-Noise removal from corrupted audio signals
+Two audio signals are processed throughout the project:  
+**Song 1:** Imagine – John Lennon  
+**Song 2:** Mamma Mia – ABBA  
 
-Bessel and notch filter design
+---
 
-AM modulation and spectral multiplexing
+## 📘 Project Overview
 
-Coherent demodulation and reconstruction
+### **Part 1 – Signal Recovery**
+Removal of a strong narrowband interference at **5567.5 Hz**.
 
-SIR-based optimization of filter and carrier choices
+#### **1. Fourth-Order Bessel Low-Pass Filter**
+- Designed using bilinear transform  
+- Sweep of cutoff frequencies  
+- Delay compensation (`finddelay` + `circshift`)  
+- SIR evaluation for both signals  
 
-MATLAB scripts, datasets, plots, and the full report
+#### **2. Custom Digital Notch Filter**
+- Pole–zero placement on the unit circle  
+- Sweep of pole radius  
+- Achieved up to **37.6 dB SIR**  
+- Near-perfect reconstruction of both songs  
 
-Two audio signals are processed throughout the project:
-Song 1: Imagine – John Lennon
-Song 2: Mamma Mia – ABBA
+---
 
-📘 Project Overview
-Part 1 – Signal Recovery
+### **Part 2 – Shared Channel Transmission**
 
-The goal is to remove a strong interference tone at 5567.5 Hz.
+Simulation of transmitting both songs over a channel whose baseband is already occupied.
 
-Techniques implemented:
+#### **Techniques Used**
+- Amplitude modulation (AM)  
+- Spectral separation of the two songs  
+- Coherent demodulation  
+- Recovery using:  
+  - Optimized Bessel low-pass filter  
+  - Custom IIR low-pass filter  
 
-1. Fourth-order Bessel Low-Pass Filter
+#### **Key Findings**
+- Higher carrier frequencies → cleaner demodulation  
+- Bessel LPF generally outperforms custom IIR LPF  
+- Single-song transmission yields best SIR values  
+  (up to **24.61 dB** with Bessel LPF)  
 
-Implemented via bilinear transform
+---
 
-Sweep of cutoff frequencies
+## 📁 Repository Structure
 
-Delay compensation using finddelay + circshift
-
-SIR evaluation for both songs
-
-2. Custom Digital Notch Filter
-
-Pole–zero placement on the unit circle
-
-Sweeping of pole radius
-
-Achieved up to 37.6 dB SIR
-
-Nearly perfect reconstruction of both audio signals
-
-Part 2 – Transmission Over a Shared Channel
-
-A simulated channel has an already-occupied baseband.
-Both songs must be transmitted without overlapping the channel disturbance.
-
-Key steps:
-
-AM modulation using different carrier frequencies
-
-Multiplexing the two songs in distinct spectral regions
-
-Coherent demodulation
-
-Recovery via:
-
-Optimized Bessel LPF
-
-Custom IIR LPF (poles + zeros)
-
-Main findings:
-
-Higher carrier frequencies → cleaner demodulation
-
-Bessel filters outperform custom LPF in most cases
-
-Single-song transmission yields the highest SIR values
-(up to 24.61 dB with Bessel LPF)
